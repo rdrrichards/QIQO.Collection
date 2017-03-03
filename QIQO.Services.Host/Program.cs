@@ -41,11 +41,11 @@ namespace QIQO.Services.Host
                 }
                 catch (SM.CommunicationException ce)
                 {
-                    Log.Error("An exception occurred: {0}", ce.Message);
+                    Log.Error($"An Communication Exception occurred: {ce.Message}");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("An exception occurred: {0}", ex.Message);
+                    Log.Error($"An exception occurred: {ex.Message}");
                 }
                 finally
                 {
@@ -57,14 +57,14 @@ namespace QIQO.Services.Host
         static void StartService(SM.ServiceHost host, string serviceDescription)
         {
             host.Open();
-            Log.Info("Service '{0}' started.", serviceDescription);
+            Log.Info($"Service '{serviceDescription}' started.");
 
             foreach (var endpoint in host.Description.Endpoints)
             {
-                Log.Info(string.Format("Listening on endpoint:"));
-                Log.Info(string.Format("Address: {0}", endpoint.Address.Uri.ToString()));
-                Log.Info(string.Format("Binding: {0}", endpoint.Binding.Name));
-                Log.Info(string.Format("Contract: {0}", endpoint.Contract.ConfigurationName));
+                Log.Info($"Listening on endpoint:");
+                Log.Info($"Address: {endpoint.Address.Uri}");
+                Log.Info($"Binding: {endpoint.Binding.Name}");
+                Log.Info($"Contract: {endpoint.Contract.ConfigurationName}");
             }
             Console.WriteLine();
         }
@@ -72,7 +72,7 @@ namespace QIQO.Services.Host
         static void StopService(SM.ServiceHost host, string serviceDescription)
         {
             host.Close();
-            Log.Info("Service '{0}' stopped.", serviceDescription);
+            Log.Info($"Service '{serviceDescription}' stopped.");
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QIQO.Core.Logging;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -70,7 +71,7 @@ namespace QIQO.Data.Common
             }
             catch (Exception ex)
             {
-                //Log.Error(ex.Message);
+                Log.Error(ex.Message);
                 throw ex;
             }
             finally
@@ -95,7 +96,7 @@ namespace QIQO.Data.Common
             }
             catch (Exception ex)
             {
-                //Log.Error(ex.Message);
+                Log.Error(ex.Message);
                 throw ex;
             }
             finally
