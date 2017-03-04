@@ -1,5 +1,4 @@
-﻿using QIQO.Core.Contracts;
-using QIQO.Data.Common;
+﻿using QIQO.Data.Common;
 using QIQO.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,12 @@ namespace QIQO.Data.Maps
         {
             try
             {
-                return new TestData { };
+                return new TestData {
+                    TestId = NullCheck<long>(ds["test_id"]),
+                    TestCode = NullCheck<string>(ds["test_code"]),
+                    TestName = NullCheck<string>(ds["test_name"]),
+                    TestDesc = NullCheck<string>(ds["test_desc"])
+                };
             }
             catch (Exception ex)
             {

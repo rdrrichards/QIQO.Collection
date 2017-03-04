@@ -3,12 +3,13 @@ using QIQO.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using QIQO.Core.Contracts;
+using QIQO.Data.Maps;
 
 namespace QIQO.Data.Repositories
 {
     public class TestRepository : ReadOnlyRepositoryBase<TestData>, ITestRepository
     {
-        public TestRepository(IMainDBContext dbContext, IMapper<TestData> mapper) : base(dbContext, mapper) { }
+        public TestRepository(IMainDBContext dbContext, ITestMapper mapper) : base(dbContext, mapper) { }
 
         public override IEnumerable<TestData> GetAll()
         {
