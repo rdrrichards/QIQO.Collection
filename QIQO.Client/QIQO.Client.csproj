@@ -97,6 +97,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controls\BaseTile.xaml.cs">
+      <DependentUpon>BaseTile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\Log.cs" />
     <Compile Include="Core\LoggerAdapter.cs" />
     <Compile Include="Events.cs" />
@@ -138,6 +141,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\BaseTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Shell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
