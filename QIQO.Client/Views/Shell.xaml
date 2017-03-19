@@ -26,6 +26,11 @@
             </ItemsControl>-->
 
             <ListBox ItemsSource="{Binding Tiles, Mode=OneTime, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ctls:BaseTile />
