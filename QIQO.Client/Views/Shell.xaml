@@ -8,11 +8,11 @@
         xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="{Binding ViewTitle}" Height="800" Width="1024">
-    <Window.Resources>
+    <!--<Window.Resources>
         <DataTemplate x:Key="TileTemp">
             <ctls:BaseTile />  
         </DataTemplate>
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -20,18 +20,24 @@
         </Grid.RowDefinitions>
         <Label Content="{Binding Number, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                FontSize="22" FontWeight="DemiBold"/>
-        <ScrollViewer Grid.Row="1" Width="500" Height="150" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <!--<ScrollViewer Grid.Row="1" Width="500" Height="150" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
 
             <!--<ItemsControl ItemsSource="{Binding Tiles, Mode=OneTime, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource TileTemp}">
             </ItemsControl>-->
 
-            <ListBox ItemsSource="{Binding Tiles, Mode=OneTime, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
+            <ListBox ItemsSource="{Binding Tiles, Mode=OneTime, UpdateSourceTrigger=PropertyChanged}" 
+                      Grid.Row="1">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" IsManipulationEnabled="True" MaxWidth="500" MaxHeight="500"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ctls:BaseTile />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </ScrollViewer>
+        <!--</ScrollViewer>-->
     </Grid>
 </Window>
