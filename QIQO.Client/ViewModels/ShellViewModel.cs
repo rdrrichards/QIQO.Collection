@@ -26,7 +26,7 @@ namespace QIQO.Client.ViewModels
         {
             Number = val;
             Tiles.Add(new BaseTile { TileLabel = $"Tile: {val}", TileValue = val });
-            OnPropertyChanged(nameof(Tiles));
+            RaisePropertyChanged(nameof(Tiles));
         }
 
         public string ViewTitle => "Main Window";
